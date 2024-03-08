@@ -1,9 +1,6 @@
 package edu.iu.habahram.pizzashop.repository;
 
-import edu.iu.habahram.pizzashop.model.ChicagoPizzaStore;
-import edu.iu.habahram.pizzashop.model.OrderData;
-import edu.iu.habahram.pizzashop.model.Pizza;
-import edu.iu.habahram.pizzashop.model.PizzaStore;
+import edu.iu.habahram.pizzashop.model.*;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -13,6 +10,9 @@ public class TextFilePizzaRepository implements PizzaRepository{
         PizzaStore pizzaStore = null;
         if(orderData.store().equalsIgnoreCase("chicago")) {
             pizzaStore = new ChicagoPizzaStore();
+        }
+        if(orderData.store().equalsIgnoreCase("newyork")) {
+            pizzaStore = new NYPizzaStore();
         }
         Pizza pizza = pizzaStore.orderPizza(orderData.item());
         return pizza.toString();

@@ -5,27 +5,27 @@ public class NewyorkPizzaFactory implements PizzaFactory{
     public Pizza createPizza(String item) {
         Pizza pizza = null;
 
-        PizzaIngredientFactory ingredientFactory = new NYPizzaIngrediantFactory();
+        PizzaIngredientFactory ingredientFactory = (PizzaIngredientFactory) new NYPizzaIngrediantFactory();
 
         if (item.equals("cheese")) {
 
             pizza = new NYCheesePizza(ingredientFactory);
-            pizza.setName("Chicago Style Cheese Pizza");
+            pizza.setName("NY Style Cheese Pizza");
 
         } else if (item.equals("veggie")) {
 
             pizza = new VeggiePizza(ingredientFactory);
-            pizza.setName("Chicago Style Veggie Pizza");
+            pizza.setName("NY Style Veggie Pizza");
 
         } else if (item.equals("clam")) {
 
             pizza = new ClamPizza(ingredientFactory);
-            pizza.setName("Chicago Style Clam Pizza");
+            pizza.setName("NY Style Clam Pizza");
 
         } else if (item.equals("pepperoni")) {
 
             pizza = new PepperoniPizza(ingredientFactory);
-            pizza.setName("Chicago Style Pepperoni Pizza");
+            pizza.setName("NY Style Pepperoni Pizza");
 
         }
         return pizza;
